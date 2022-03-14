@@ -1,8 +1,5 @@
-const imagensPerfil = ["./assets/Irelia.png", "./assets/Kaisa.png",
-                       "./assets/Mordekaiser.png", "./assets/Nocturne.png",
-                       "./assets/Morgana.png", "./assets/Shen.png"]
-                       
-const campeoes = ["irelia", "kaisa", "Mordekaiser", "nocturne", "morgana", "Shen"];
+const imagensPerfil = "./assets/Shen.png"   
+const campeoes = "Shen";
 
 const perfilSugestao = [
     {imagem:"./assets/Irelia.png", nome:"irelia"},
@@ -16,7 +13,7 @@ const perfilSugestao = [
 export default function Sidebar() {
     return (
         <div class="sidebar">
-            <Usuario imagem={imagensPerfil[5]} campeao={campeoes[5]}/>
+            <Usuario imagem={imagensPerfil} campeao={campeoes}/>
             <div class="sugestoes">
                 <Titulo/>
                 {perfilSugestao.map(({imagem, nome}) =>
