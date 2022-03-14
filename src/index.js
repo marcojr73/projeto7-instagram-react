@@ -11,9 +11,8 @@ function App(){
             <div class="corpo">
                 <div class="esquerda">
                     <Stories/>
-                    <div class="posts">
-                        <Posts/>
-                    </div>
+                    <Posts/>
+                    
                 </div>
                 <Sidebar/>
             </div>

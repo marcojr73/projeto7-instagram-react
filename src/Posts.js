@@ -1,39 +1,64 @@
-let imagensPosts = ["./assets/tk.jpg", "./assets/sett.jpg", "./assets/qiyana.jpg"];
-let imagensPerfil = ["./assets/tk.png", "./assets/Sett.png", "./assets/Qiyana.png"];
-let nomes = ["tahmkench", "Sett", "quyiana"];
-let curtidoPor = ["jax", "gwen", "aphelios"];
-let curtidoImg = ["./assets/Jax.png", "./assets/Gwen.png", "./assets/Aphelios.png"]
+const arrPosts = [
+    {profilePost: "./assets/tk.png",
+    profileNome: "tahmkench",
+    imagem: "./assets/tk.jpg",
+    mensagem: "Você é tão rápido como uma formiga no melaço",
+    curtido: "jax",
+    curtidoImg: "./assets/Jax.png",
+    curtidas: "98"},
+
+    {profilePost: "./assets/Sett.png",
+    profileNome: "Sett",
+    imagem: "./assets/sett.jpg",
+    mensagem: "Coisas que eu amo: mamis, quebrar pescoços e boa seda ioniana.",
+    curtido: "gwen",
+    curtidoImg: "./assets/Gwen.png",
+    curtidas: "54"},
+
+    {profilePost: "./assets/Qiyana.png",
+    profileNome:  "quyiana",
+    imagem: "./assets/qiyana.jpg",
+    mensagem: "Um império glorioso, com uma imperatriz mais gloriosa ainda",
+    curtido: "aphelios",
+    curtidoImg: "./assets/Aphelios.png",
+    curtidas: "132"},
+
+    {profilePost: "./assets/LeeSin.png",
+    profileNome: "leesin",
+    imagem: "./assets/ls.jpg",
+    mensagem: "Os espíritos vivem entre nós",
+    curtido: "ezreal",
+    curtidoImg: "./assets/ez.png",
+    curtidas: "118"}
+]
+
 
 export default function Posts() {
     return (
-        <div>
-            <div class="post">
-                <Topo perfil = {imagensPerfil[0]} nomes = {nomes[0]} />
-                <Conteudo imagem = {imagensPosts[0]}/>
-                <Fundo curtido={curtidoPor[0]} curtidoImg={curtidoImg[0]} />
-            </div>
-
-            <div class="post">
-                <Topo perfil = {imagensPerfil[1]} nomes = {nomes[1]} />
-                <Conteudo imagem = {imagensPosts[1]} />
-                <Fundo curtido={curtidoPor[1]} curtidoImg={curtidoImg[1]} />
-            </div>
-
-            <div class="post">
-                <Topo perfil = {imagensPerfil[2]} nomes = {nomes[2]} />
-                <Conteudo imagem = {imagensPosts[2]} />
-                <Fundo curtido={curtidoPor[2]} curtidoImg={curtidoImg[2]} />
-            </div>
+        <div class="posts">
+            <Post/>
         </div>
-        
-        
     )
 }
+
+function Post(){
+    return(
+        arrPosts.map(({profilePost, profileNome, imagem, curtido,mensagem, curtidoImg, curtidas}) => 
+        <div class="post">
+            <Topo perfil = {profilePost} nomes = {profileNome} />
+            <Conteudo imagem = {imagem}/>
+            <Fundo curtido={curtido} mensagem={mensagem} nome={profileNome} curtidoImg={curtidoImg} curtidas={curtidas}/>
+        </div>
+        )
+      
+    )
+}
+
 function Topo(props) {
     return (
         <div class="topo">
             <div class="usuario">
-                <img src= {props.perfil} />
+                <img class="img-user" src= {props.perfil} alt="img"/>
                 {props.nomes}
             </div>
             <div class="acoes">
@@ -46,10 +71,11 @@ function Topo(props) {
 function Conteudo(props) {
     return (
         <div class="conteudo">
-            <img src={props.imagem} />
+            <img src={props.imagem} alt="img"/>
         </div>
     )
 }
+
 function Fundo(props) {
     return (
         <div class="fundo">
@@ -64,10 +90,16 @@ function Fundo(props) {
                 </div>
             </div>
 
+            <div class = "message">
+                <div class="mensagem">
+                    <strong>{props.nome}</strong> {props.mensagem}
+                </div>
+            </div>
+
             <div class="curtidas">
-                <img src={props.curtidoImg} />
+                <img class="img-user" src={props.curtidoImg} alt="img"/>
                 <div class="texto">
-                    Curtido por <strong>{props.curtido}</strong> e <strong>outras 101.523 pessoas</strong>
+                    Curtido por <strong>{props.curtido}</strong> e <strong>outros {props.curtidas} campeões</strong>
                 </div>
             </div>
         </div>
