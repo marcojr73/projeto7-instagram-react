@@ -5,7 +5,6 @@ const imagensPerfil = ["./assets/Irelia.png", "./assets/Kaisa.png",
 const campeoes = ["irelia", "kaisa", "Mordekaiser", "nocturne", "morgana", "Shen"];
 
 const perfilSugestao = [
-    {imagem:"./assets/Shen.png", nome:"Shen"},
     {imagem:"./assets/Irelia.png", nome:"irelia"},
     {imagem:"./assets/Kaisa.png", nome:"kaisa"},
     {imagem:"./assets/Mordekaiser.png", nome:"Mordekaiser"},
