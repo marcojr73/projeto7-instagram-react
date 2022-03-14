@@ -4,6 +4,15 @@ const imagensPerfil = ["./assets/Irelia.png", "./assets/Kaisa.png",
                        
 const campeoes = ["irelia", "kaisa", "Mordekaiser", "nocturne", "morgana", "Shen"];
 
+const perfilSugestao = [
+    {imagem:"./assets/Shen.png", nome:"Shen"},
+    {imagem:"./assets/Irelia.png", nome:"irelia"},
+    {imagem:"./assets/Kaisa.png", nome:"kaisa"},
+    {imagem:"./assets/Mordekaiser.png", nome:"Mordekaiser"},
+    {imagem:"./assets/Nocturne.png", nome:"nocturne"},
+    {imagem:"./assets/Morgana.png", nome:"morgana"}
+]
+
 
 export default function Sidebar() {
     return (
@@ -11,11 +20,9 @@ export default function Sidebar() {
             <Usuario imagem={imagensPerfil[5]} campeao={campeoes[5]}/>
             <div class="sugestoes">
                 <Titulo/>
-                <Sugestao imagem ={imagensPerfil[0]} campeoes={campeoes[0]}/>
-                <Sugestao imagem ={imagensPerfil[1]} campeoes={campeoes[1]}/>
-                <Sugestao imagem ={imagensPerfil[2]} campeoes={campeoes[2]}/>
-                <Sugestao imagem ={imagensPerfil[3]} campeoes={campeoes[3]}/>
-                <Sugestao imagem ={imagensPerfil[4]} campeoes={campeoes[4]}/>
+                {perfilSugestao.map(({imagem, nome}) =>
+                <Sugestao imagem ={imagem} campeoes={nome}/>
+                )}
             </div>
 
             <div class="links">
