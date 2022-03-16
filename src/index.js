@@ -12,11 +12,9 @@ function App(){
                 <div class="esquerda">
                     <Stories/>
                     <Posts/>
-                    
                 </div>
                 <Sidebar/>
             </div>
-            
         </div>
     )
 }
